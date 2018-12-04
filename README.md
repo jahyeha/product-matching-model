@@ -1,1 +1,1 @@
-# snu-capstone-project
+# capstone-project
