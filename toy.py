@@ -8,14 +8,13 @@ import pprint
 
 g_data = pd.read_csv('dataset/goods.csv', encoding='CP949', usecols=['g_modelno', 'g_modelnm'])
 p_data = pd.read_csv('dataset/pricelist.csv', encoding='CP949', usecols=['pl_no', 'pl_goodsnm', 'pl_modelno'])
-p_data = p_data[p_data['pl_modelno'] != 0] # 매칭이 안된 것들은 제외
-# └> (X) Classification(Eng.상품명도 레이블에 매칭해 학습 가능) <-> Word Embedding
+p_data = p_data[p_data['pl_modelno'] != 0] # Not-matched goods names
 print("* length of p_data: {} | g_data: {}".format(len(p_data), len(g_data)))
 total_goods_nms = list(p_data['pl_goodsnm'].values) + list(g_data['g_modelnm'].values)
 
-#==========================#
+#=======================#
 # 2. Making dictionaries
-#==========================#
+#=======================#
 
 #2-0. Preparation
 modelno_to_goodsnms = dict()
@@ -31,7 +30,6 @@ for _, row in p_data.iterrows():
 
 #2-1. 위에 생성된 dict.에서 value의 길이를 기준으로 내림차순 Sorting & Slicing (toy set)
 # └> modelno에 가장 매칭이 많이된 순서대로 N개 자르기
-
 modelno_to_length = dict()
 # └> {modelno: length of a list, ..}
 for key, val in modelno_to_goodsnms.items():
@@ -54,7 +52,6 @@ for i in range(len(sort_n_sliced)):
 #2-2. {modelno: [[sentence 1's tokens], [sentence 2's tokens],..] | mutually MATCHING
 # └> e.g.{ 12712082: [['정품', '히말라야', '인텐시브', '고수분크림'],
 #                     ['히말라야', '인텐시브', '고수분크림'], ...], ...}
-
 from wordEmbedding import WordEmbedding
 WE = WordEmbedding(total_goods_nms)
 modelno_to_tokens_list_set = dict()
@@ -94,7 +91,3 @@ import pickle
 # save
 with open('data.pickle', 'wb') as f:
     pickle.dump(modelno_to_vecs, f, pickle.HIGHEST_PROTOCOL)
-
-# load ===> main.py
-# with open('data.pickle', 'rb') as f:
-#     data = pickle.load(f)

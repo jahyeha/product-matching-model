@@ -1,5 +1,5 @@
 import pickle
-# load data.pickle
+# Loading data.pickle
 with open('data.pickle', 'rb') as f:
     data = pickle.load(f)
 

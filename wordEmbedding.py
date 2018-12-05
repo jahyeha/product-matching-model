@@ -2,9 +2,9 @@ import pandas as pd
 import warnings
 warnings.filterwarnings(action='ignore', category=UserWarning, module='gensim')
 
-#==============================#
+#============================#
 # Word Embedding: FastText
-#==============================#
+#============================#
 
 class WordEmbedding:
 
