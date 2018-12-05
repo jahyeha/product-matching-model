@@ -1,6 +1,7 @@
 import pickle
 # Loading data.pickle
 with open('data.pickle', 'rb') as f:
-    data = pickle.load(f)
+    toy_dict = pickle.load(f)
 
-print(data.keys())
+(keys, values) = toy_dict.keys(), toy_dict.values()
+print(len(keys), len(values))

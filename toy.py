@@ -2,24 +2,19 @@ import pandas as pd
 import operator
 import pprint
 
-#===================#
-# 1. Loading data
-#===================#
-
+# 1. Loading data #
 g_data = pd.read_csv('dataset/goods.csv', encoding='CP949', usecols=['g_modelno', 'g_modelnm'])
 p_data = pd.read_csv('dataset/pricelist.csv', encoding='CP949', usecols=['pl_no', 'pl_goodsnm', 'pl_modelno'])
 p_data = p_data[p_data['pl_modelno'] != 0] # Not-matched goods names
 print("* length of p_data: {} | g_data: {}".format(len(p_data), len(g_data)))
 total_goods_nms = list(p_data['pl_goodsnm'].values) + list(g_data['g_modelnm'].values)
 
-#=======================#
-# 2. Making dictionaries
-#=======================#
 
-#2-0. Preparation
+# 2. Creating dictionaries #
 modelno_to_goodsnms = dict()
 # {modelno: [modelno에 매칭된 상품명1, 상품명2, ..], ..}
-# └ pricelist를 돌면서 key를 "modelno", value를 "modelno에 매칭된 상품명들의 리스트"로 갖는 dict 생성
+# └> pricelist를 돌면서 key를 "modelno", value를 "modelno에 매칭된 상품명들의 리스트"로 갖는 dict 생성
+
 for _, row in p_data.iterrows():
     (key, val) = row['pl_modelno'], row['pl_goodsnm']
     # └ (key: 모델(카탈로그)번호, val: key에 매칭되는 plicelist 상품명 하나)
@@ -28,13 +23,12 @@ for _, row in p_data.iterrows():
     else:
         modelno_to_goodsnms[key].append(val)
 
-#2-1. 위에 생성된 dict.에서 value의 길이를 기준으로 내림차순 Sorting & Slicing (toy set)
+# dict. "modelno_to_goodsnms" => value의 길이를 기준으로 내림차순 Sorting & Slicing (toy set)
 # └> modelno에 가장 매칭이 많이된 순서대로 N개 자르기
 modelno_to_length = dict()
 # └> {modelno: length of a list, ..}
 for key, val in modelno_to_goodsnms.items():
     modelno_to_length[key] = len(val)
-
 max_size = 50
 sort_n_sliced = sorted(
                 modelno_to_length.items(),
@@ -49,7 +43,7 @@ for i in range(len(sort_n_sliced)):
     toy_dict[modelno] = modelno_to_goodsnms[modelno]
 # └> e.g. {12712082:['정품 히말라야 인텐시브 고수분크림', '히말라야 인텐시브 고수분크림',..],..}
 
-#2-2. {modelno: [[sentence 1's tokens], [sentence 2's tokens],..] | mutually MATCHING
+# {modelno: [[sentence 1's tokens], [sentence 2's tokens],..] | mutually MATCHING
 # └> e.g.{ 12712082: [['정품', '히말라야', '인텐시브', '고수분크림'],
 #                     ['히말라야', '인텐시브', '고수분크림'], ...], ...}
 from wordEmbedding import WordEmbedding
@@ -61,8 +55,8 @@ for key, val in toy_dict.items():
         tokens_list.append(WE.tokenize_sentence(sent))
     modelno_to_tokens_list_set[key] = tokens_list
 
-#2-3. {modelno: [[[vector], [vector], ..],
-#                [[vector], [vector], ..],..], ...} | vector: N-d word embedding vector
+# {modelno: [[[vector], [vector], ..],
+#            [[vector], [vector], ..],..], ...} | vector: N-d word embedding vector
 from gensim.models import FastText
 myModel = FastText.load('model/model.bin') # 저장된 모델 불러오기
 modelno_to_vecs = dict()
@@ -80,12 +74,10 @@ for key, val in modelno_to_tokens_list_set.items():
         vec_lst_set.append(lst)
     modelno_to_vecs[key] = vec_lst_set
 
-pprint.pprint(error_list)
 print(len(error_list))
 
-#=============================#
-# 3. Convert dict.to pickle
-#=============================#
+
+# 3. Convert dict to pickle #
 import pickle
 
 # save
