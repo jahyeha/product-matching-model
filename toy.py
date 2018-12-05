@@ -78,8 +78,7 @@ print(len(error_list))
 
 
 # 3. Convert dict to pickle #
+# Save
 import pickle
-
-# save
 with open('data.pickle', 'wb') as f:
     pickle.dump(modelno_to_vecs, f, pickle.HIGHEST_PROTOCOL)

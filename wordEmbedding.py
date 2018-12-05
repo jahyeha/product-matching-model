@@ -63,4 +63,4 @@ if __name__ == '__main__':
 
     total_goods_nms = list(p_data['pl_goodsnm'].values) + list(g_data['g_modelnm'].values)
     WE = WordEmbedding(total_goods_nms)
-    myModel = WE.model(1, 100, 3) # SAVED @model/model.bin
+    myModel = WE.model(1, 2, 3) # SAVED @model/model.bin
