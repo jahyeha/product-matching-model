@@ -1,8 +1,11 @@
 # capstone-project
 
-2018 [SNU-FIRA AI Agent Course](http://bdi.snu.ac.kr/academy/portal/index.php/ai_intro/), Capstone project
+2018 [SNU-FIRA AI Agent Course](http://bdi.snu.ac.kr/academy/portal/index.php/ai_intro/), Final Capstone Project(18.11.06-12.14)
 
 This project is supported by **Seoul National University& Ministry of Employment and Labor**
+
+## Project Title
+Product Matching Model for the e-commerce platform using Deep Learning techniques
 
 ## Team Members
 - [Jahye Ha](https://github.com/jahyeha)
