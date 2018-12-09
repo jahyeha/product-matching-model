@@ -2,8 +2,8 @@
 
 SNU FIRA, 2018 Capstone Project
 This project is supported by **SNU Big Data Institute**
---------------------------------------------------------
 
+--------------------------------------------------------
 ### Team Members
 - [Jahye Ha](https://github.com/jahyeha)
 - [Yoonna Jang](https://github.com/YOONNAJANG)
