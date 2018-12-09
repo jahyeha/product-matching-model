@@ -4,8 +4,7 @@
 
 This project is supported by **Seoul National University& Ministry of Employment and Labor**
 
-## Project Title
-Product Matching Model for the e-commerce platform using Deep Learning techniques
+`Project Title: Product Matching Model for the e-commerce platform using Deep Learning techniques`
 
 ## Team Members
 - [Jahye Ha](https://github.com/jahyeha)
