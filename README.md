@@ -1,8 +1,8 @@
 # capstone-project
 
-2018 [SNU-FIRA AI Agent](http://bdi.snu.ac.kr/academy/portal/index.php/ai_intro/), Capstone Project
+2018 [SNU-FIRA AI Agent Course](http://bdi.snu.ac.kr/academy/portal/index.php/ai_intro/), Capstone project
 
-This project is supported by **SNU Big Data Institute**
+This project is supported by **Seoul National University BDI**
 
 ## Team Members
 - [Jahye Ha](https://github.com/jahyeha)
