@@ -3,14 +3,12 @@
 SNU FIRA, 2018 Capstone Project
 This project is supported by **SNU Big Data Institute**
 
-
-### Team Members
+## Team Members
 - [Jahye Ha](https://github.com/jahyeha)
 - [Yoonna Jang](https://github.com/YOONNAJANG)
 - Yong Joo An (T.A.)
 
-
-### Requirements
+## Requirements
 Initial requirements are as follows.
 ```
  Python 3.6.5
