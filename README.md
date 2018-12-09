@@ -9,7 +9,7 @@ This project is supported by **Seoul National University& Ministry of Employment
 ## Team Members
 - [Jahye Ha](https://github.com/jahyeha)
 - [Yoonna Jang](https://github.com/YOONNAJANG)
-- Yong Joo An (T.A.)
+- YongJu Ahn [(T.A.)](https://bhi-kimlab.github.io/)
 
 ## Requirements
 Initial requirements are as follows.
