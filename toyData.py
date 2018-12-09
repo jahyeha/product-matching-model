@@ -64,7 +64,7 @@ def toss_toyDict(): # => classification.py
 def toss_modelno_to_goodsnm():
     return modelno_to_goodsnm
 
-############### For Siame Net. ###############
+# For Siamese Network #
 # 4. Create a input list for TOY SET
 # └> toy_input_lst = [[model_nm, pl_nm], [model_nam, pl_nm],...]
 toy_input_lst = list()
