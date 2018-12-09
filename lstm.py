@@ -7,7 +7,7 @@ from keras.models import Sequential
 from keras.layers import Dense
 from keras.layers import LSTM
 import numpy as np
-import re
+
 
 class MyLSTM:
 
@@ -36,8 +36,6 @@ class MyLSTM:
         print("Accuracy: %.2f%%" % (scores[1] * 100))
 
     def split_train_test_set(self):
-        total_goods_nms = list(self.p_data['pl_goodsnm'].values) + list(self.g_data['g_modelnm'].values)
-        g_modelnm, g_modelno = self.g_data['g_modelnm'], self.g_data['g_modelno']
         list_len = len(self.vec_label_lst)
         shuffle(self.vec_label_lst)
         idx_num_train, idx_num_val = int(list_len * 0.6), int(list_len * 0.8)
