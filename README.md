@@ -2,7 +2,7 @@
 
 2018 [SNU-FIRA AI Agent Course](http://bdi.snu.ac.kr/academy/portal/index.php/ai_intro/), Capstone project
 
-This project is supported by **Seoul National University**
+This project is supported by **Seoul National University& Ministry of Employment and Labor**
 
 ## Team Members
 - [Jahye Ha](https://github.com/jahyeha)
