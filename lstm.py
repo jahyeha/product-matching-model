@@ -99,7 +99,6 @@ class MyLSTM:
         #   │- lower, replace 특수문자, etc.
         #   │- tokenize
         # output: ['token', 'token', 'token', ..]
-
         sent = re.sub('[^0-9a-z가-힣]+', ' ', sentence.lower())
         p1 = re.compile(r'(?P<num>[0-9]+)\s+(?P<eng>[a-zA-Z]+)')
         sent = p1.sub('\g<num>\g<eng>', sent)
