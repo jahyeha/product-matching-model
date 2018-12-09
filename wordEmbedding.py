@@ -1,9 +1,11 @@
-import pandas as pd
 import warnings
 warnings.filterwarnings(action='ignore', category=UserWarning, module='gensim')
+from gensim.models import FastText
+import pandas as pd
+import re
 
 #--------------------------#
-# Word Embedding: FastText
+# Word Embedding: FastText #
 #--------------------------#
 
 class WordEmbedding:
@@ -14,13 +16,12 @@ class WordEmbedding:
 
     def model(self, minCnt, size, window):
         # size = N dim. vector
-        from gensim.models import FastText
         model = FastText(
-            self.tokensListSet,
-            min_count=minCnt,
-            size=size,
-            window=window)
-        model.save('model/model.bin')
+                self.tokensListSet,
+                min_count=minCnt,
+                size=size,
+                window=window)
+        model.save('model/fastText.bin')
         print(model)
 
     def tokens_list_set(self):
@@ -35,7 +36,6 @@ class WordEmbedding:
         return tokenized_goods_list
 
     def tokenize_sentence(self, sentence):
-        import re
         # input: 'sentence'
         #   │- lower, replace 특수문자, etc.
         #   │- tokenize
@@ -63,4 +63,4 @@ if __name__ == '__main__':
 
     total_goods_nms = list(p_data['pl_goodsnm'].values) + list(g_data['g_modelnm'].values)
     WE = WordEmbedding(total_goods_nms)
-    myModel = WE.model(1, 2, 3) # SAVED @model/model.bin
+    myModel = WE.model(1, 300, 3) # SAVED @model/fastText.bin # => MemoryError
