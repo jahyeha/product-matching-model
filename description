@@ -1,5 +1,9 @@
 
-# 18.12.09 RESULT of toy set
-    Toy num | LSTM sent. Embedding layer | Acc
+# 18.12.09 RESULT of toy set (LSTM)
+  Toy num.|LSTM sent. Embedding layer|(epoch)|Acc
     - 50, 100, 97.47%
     - 50, 500, 98.06%
+    - 100, 500, 5(epoch), 96.70%
+    - 100, 500, 30(epoch), 97.56%
+    ---------------------------------
+    - More than 150 => Memory Error!

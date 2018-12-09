@@ -1,7 +1,5 @@
-from toyData import toss_toyDict
-from toyData import modelno_to_goodsnm
+from utils import create_basic_dict
 from utils import load_data
-from gensim.models import FastText
 from random import shuffle
 from keras.preprocessing import sequence
 from keras.models import Sequential
@@ -12,11 +10,12 @@ import re
 
 class MyLSTM:
 
-    def __init__(self):
-        self.toyData = toss_toyDict()
-        self.fastText = FastText.load('model/FastText.bin')
+    def __init__(self, toy_dict, embedding_model):
+        self.toyData = toy_dict
+        self.embedding = embedding_model
         self.g_data, self.p_data = load_data()
         self.pl_label_lst, self.vec_label_lst = self.create_label_lst()
+        self.modelno_to_goodsnm = create_basic_dict()[0]
 
     def run_lstm(self, max_seq_len):
         (X_train, Y_train, X_val, Y_val, X_test, Y_test) = self.split_train_test_set()
@@ -27,8 +26,10 @@ class MyLSTM:
         model = Sequential()
         model.add(LSTM(200, input_shape=(30, 300)))
         model.add(Dense(50, activation='softmax'))
+        model.compile(optimizer='adam',
+                      loss='sparse_categorical_crossentropy',
+                      metrics=['accuracy'])
 
-        model.compile(optimizer='adam', loss='sparse_categorical_crossentropy', metrics=['accuracy'])
         history = model.fit(X_train, Y_train, epochs=5, batch_size=100, validation_data=(X_val, Y_val))
         scores = model.evaluate(X_test, Y_test, verbose=0)
         print("Accuracy: %.2f%%" % (scores[1] * 100))
@@ -42,16 +43,20 @@ class MyLSTM:
         toy_train = self.vec_label_lst[:idx_num_train]
         toy_val = self.vec_label_lst[idx_num_train:idx_num_val]
         toy_test = self.vec_label_lst[idx_num_val:]
-        print("train:", len(toy_train), "val:", len(toy_val), "test:", len(toy_test))
+        print("--------------------------------------")
+        print("train: {} | val: {} | test: {}".format(len(toy_train), len(toy_val), len(toy_test)))
+        print("--------------------------------------")
 
         X_train, Y_train = list(), list()
         for i in toy_train:
             X_train.append(i[0])
             Y_train.append(i[1])
+
         X_val, Y_val = list(), list()
         for i in toy_val:
             X_val.append(i[0])
             Y_val.append(i[1])
+
         X_test, Y_test = list(), list()
         for i in toy_test:
             X_test.append(i[0])
@@ -61,11 +66,11 @@ class MyLSTM:
     def create_label_lst(self):
         # out: (pl_label_lst, vec_label_lst)
         pl_label_lst = list()
-        # └> [['(정품) 히말라야 인텐시브 고수분크림 150ml  영양', 0], ['(정품) 히말라야 인텐시브 고수분크림 150ml  영양크림/보습/스킨/인텐시브/수분크림', 0],..]
+        # └> [['히말라야 인텐시브 고수분크림 150ml  영양', 0], ['히말라야 인텐시브 고수분크림 150ml  영양크림/보습/스킨/인텐시브/수분크림', 0],..]
         num = 0
         for modelno, pl_nms in self.toyData.items():
             # modelno: 12712082
-            # plnms: ['정품 히말라야 인텐시브 고수분크림', '히말라야 인텐시브 고수분크림',..]
+            # plnms: ['히말라야 인텐시브 고수분크림', '히말라야 인텐시브 고수분크림',..]
             for i in range(len(pl_nms)):
                 pl_label_lst.append([pl_nms[i], num])
             num += 1
@@ -74,14 +79,14 @@ class MyLSTM:
         # └> [ [[vector], [vector],...], 0], ...] # Final
         #      -----------------------> 1 sentence
         for pl_label_set in pl_label_lst:
-            # └> ['(정품) 히말라야 인텐시브 고수분크림 150ml 영양', 0]
+            # └> ['히말라야 인텐시브 고수분크림 150ml 영양', 0]
             goodsnm = pl_label_set[0]
-            # └> '(정품) 히말라야 인텐시브 고수분크림 150ml 영양'
+            # └> '히말라야 인텐시브 고수분크림 150ml 영양'
             tokenized = self.tokenize_sentence(goodsnm)
-            # └> ['(정품)', '히말라야', '인텐시브', '고수분크림', '150ml', '영양']
+            # └> ['히말라야', '인텐시브', '고수분크림', '150ml', '영양']
             # └> [[vector], [vector], [vector], ...]
             for i in range(len(tokenized)):
-                word_vec = self.fastText[tokenized[i]]
+                word_vec = self.embedding[tokenized[i]]
                 tokenized[i] = word_vec
             vec_label_lst.append([tokenized, pl_label_set[1]])
         return (pl_label_lst, vec_label_lst)
@@ -91,7 +96,7 @@ class MyLSTM:
         idx_dict = dict()
         for i in range(len(self.toyData)):
             modelno = list(self.toyData.keys())[i]
-            idx_dict[i] = (modelno, modelno_to_goodsnm[modelno])
+            idx_dict[i] = (modelno, self.modelno_to_goodsnm[modelno])
         return idx_dict
 
     def tokenize_sentence(self, sentence):
@@ -111,10 +116,6 @@ class MyLSTM:
         p5 = re.compile(r'(?P<eng>[a-zA-Z]+)(?P<kor>[가-힣]+)')
         sent = p5.sub('\g<eng> \g<kor>', sent)
         return sent.split()
-
-if __name__ == "__main__":
-    lstm = MyLSTM()
-    lstm.run_lstm(max_seq_len=30)
 
 # reference
 # https://machinelearningmastery.com/sequence-classification-lstm-recurrent-neural-networks-python-keras/
