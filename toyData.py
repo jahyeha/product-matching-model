@@ -35,8 +35,7 @@ class ToyData():
         for i in range(len(sort_n_sliced)):
             modelno = sort_n_sliced[i][0]
             toy_dict[modelno] = self.modelno_to_goodsnms[modelno]
-        # └> e.g. {12712082:['정품 히말라야 인텐시브 고수분크림', '히말라야 인텐시브 고수분크림',..],..}
-        # └>(변경) {modelno: [(pl_no, pl_goodsnm),(pl_no2, pl_goodsnms),.. ], ..}
+        # └> e.g. {modelno: [(pl_no, pl_goodsnm),(pl_no2, pl_goodsnms),..], ..}
         return toy_dict
 
 if __name__ == '__main__':
