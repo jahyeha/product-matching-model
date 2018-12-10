@@ -7,8 +7,8 @@ This project is supported by **Seoul National University& Ministry of Employment
 `✱ Project title: Product matching model for the e-commerce platform using Deep Learning techniques`
 
 ## Team Members
-- [Jahye Ha](https://github.com/jahyeha) (`jahyeharu@gmail.com`)
-- [Yoonna Jang](https://github.com/YOONNAJANG) (`dbssk0604@naver.com`)
+- [Jahye Ha](https://github.com/jahyeha) (jahyeharu@gmail.com)
+- [Yoonna Jang](https://github.com/YOONNAJANG) (dbssk0604@naver.com)
 - Taewon Kang
 - [Yongju Ahn](https://bhi-kimlab.github.io/) (T.A.)
 
