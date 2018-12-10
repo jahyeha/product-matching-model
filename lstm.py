@@ -32,7 +32,7 @@ class MyLSTM:
                       loss='sparse_categorical_crossentropy',
                       metrics=['accuracy'])
 
-        history = model.fit(X_train, Y_train, epochs=5, batch_size=100, validation_data=(X_val, Y_val))
+        history = model.fit(X_train, Y_train, epochs=10, batch_size=100, validation_data=(X_val, Y_val))
         model.save('model/lstm.h5')
         scores = model.evaluate(X_test, Y_test, verbose=0)
         print("Accuracy: %.2f%%" % (scores[1] * 100))
