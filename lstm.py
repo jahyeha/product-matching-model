@@ -19,7 +19,7 @@ class MyLSTM:
         self.modelno_to_goodsnm = create_basic_dict()[0]
 
     def run_lstm(self, max_seq_len):
-        (X_train, Y_train, X_val, Y_val, X_test, Y_test) = self.split_train_test_set()
+        (X_train, Y_train, X_val, Y_val, X_test, Y_test) = self.split_train_test()
         X_train = sequence.pad_sequences(np.array(X_train), maxlen=max_seq_len)
         X_val = sequence.pad_sequences(np.array(X_val), maxlen=max_seq_len)
         X_test = sequence.pad_sequences(np.array(X_test), maxlen=max_seq_len)
@@ -35,7 +35,7 @@ class MyLSTM:
         scores = model.evaluate(X_test, Y_test, verbose=0)
         print("Accuracy: %.2f%%" % (scores[1] * 100))
 
-    def split_train_test_set(self):
+    def split_train_test(self):
         list_len = len(self.vec_label_lst)
         shuffle(self.vec_label_lst)
         idx_num_train, idx_num_val = int(list_len * 0.6), int(list_len * 0.8)
@@ -99,5 +99,4 @@ class MyLSTM:
         return idx_dict
 
 
-# reference
-# https://machinelearningmastery.com/sequence-classification-lstm-recurrent-neural-networks-python-keras/
+# reference| https://machinelearningmastery.com/sequence-classification-lstm-recurrent-neural-networks-python-keras/
