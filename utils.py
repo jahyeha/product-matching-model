@@ -110,9 +110,9 @@ def create_word_idx_dict(docs):
 
 def make_encoded_lst(docs):
     # [in] docs (list) = ['PL 상품명', 'PL 상품명',..]
-    #   └ e.g. ['정품 히말라야 크림', '정품 히말라야 보습', ..]
+    #             └ e.g. ['정품 히말라야 크림', '정품 히말라야 보습', ..]
     # [out] encoded_lst (list of lists)
-    #   └ e.g. [[1, 2, 3], [1, 2, 5],..]
+    #             └ e.g. [[1, 2, 3], [1, 2, 5],..]
     t = Tokenizer()
     encoded_lst = t.texts_to_sequences(docs)
     return encoded_lst
