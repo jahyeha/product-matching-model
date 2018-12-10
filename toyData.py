@@ -1,5 +1,6 @@
 import utils
 import operator
+import pickle
 
 class ToyData():
 
@@ -8,7 +9,12 @@ class ToyData():
         self.total_goods_nms = utils.make_goodsnms_lst()
         self.g_modelnm = self.g_data['g_modelnm']
         self.g_modelno = self.g_data['g_modelno']
-        self.modelno_to_goodsnms = utils.create_basic_dict()[1]
+        self.modelno_to_goodsnms = utils.model_basic_dict()[1]
+
+    def save_toy_dict(self, max_size):
+        toy_dict = self.create_toy_dict(max_size)
+        with open('dictionary/toyDict.pickle', 'wb') as handel:
+            pickle.dump(toy_dict, handel, protocol=pickle.HIGHEST_PROTOCOL)
 
     def create_toy_dict(self, max_size):
         # 1. modelno에 매칭이 가장 많이된 순서대로 N개 자르기
@@ -30,4 +36,10 @@ class ToyData():
             modelno = sort_n_sliced[i][0]
             toy_dict[modelno] = self.modelno_to_goodsnms[modelno]
         # └> e.g. {12712082:['정품 히말라야 인텐시브 고수분크림', '히말라야 인텐시브 고수분크림',..],..}
+        # └>(변경) {modelno: [(pl_no, pl_goodsnm),(pl_no2, pl_goodsnms),.. ], ..}
         return toy_dict
+
+if __name__ == '__main__':
+    #-------Pickle Toyset-------#
+    ToyData().save_toy_dict(max_size=50)
+    #---------------------------#

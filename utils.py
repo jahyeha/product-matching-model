@@ -5,7 +5,7 @@ from numpy import array
 import toyData
 import re
 
-# Loading data #
+
 def load_data():
     g_data = pd.read_csv('dataset/goods.csv', encoding='CP949', usecols=['g_modelno', 'g_modelnm'])
     p_data = pd.read_csv('dataset/pricelist.csv', encoding='CP949', usecols=['pl_no', 'pl_goodsnm', 'pl_modelno'])
@@ -19,7 +19,10 @@ def make_goodsnms_lst(): # total_goods_nms
     total_goods_nms = pl_goodsnms + g_goodsnms
     return total_goods_nms
 
-def create_basic_dict():
+#---------------------------------------------------#
+# model_basic_dict | PL_basic_dict
+
+def model_basic_dict(): #<= create_basic_dict
     g_data, p_data = load_data()
     g_modelnm, g_modelno = g_data['g_modelnm'], g_data['g_modelno']
 
@@ -32,15 +35,29 @@ def create_basic_dict():
 
     # 2. modelno_to_goodsnms
     modelno_to_goodsnms = dict()
-    # └>{modelno: [modelno에 매칭된 pl 상품명(1), pl 상품명(2), ..], ..}
+    # └>{modelno: [(pl_no, pl_goodsnm), (pl_no2, pl_goodsnms),.. ], ..}
     for _, row in p_data.iterrows():
-        (key, val) = row['pl_modelno'], row['pl_goodsnm']
-        # └ (key: 모델(카탈로그)번호, val: key에 매칭되는 plicelist 상품명 하나)
+        (key, num, val) = row['pl_modelno'], row['pl_no'], row['pl_goodsnm']
+        # └ (key: 모델(카탈로그)번호,
+        #    num: key에 매칭되는 pricelist number
+        #    val: key에 매칭되는 pricelist 상품명 하나)
         if key not in modelno_to_goodsnms:
-            modelno_to_goodsnms[key] = [val]
+            modelno_to_goodsnms[key] = [(num, val)]
         else:
-            modelno_to_goodsnms[key].append(val)
+            modelno_to_goodsnms[key].append((num, val))
     return (modelno_to_goodsnm, modelno_to_goodsnms)
+
+# 18.12.10 11pm UPDATE
+def PL_basic_dict():
+    g_data, p_data = load_data()
+    p_goodsnm = list(p_data['pl_goodsnm'].values)
+    p_plno = list(p_data['pl_no'].values)
+    plno_to_plnm = dict()
+    # └> e.g. {pl_no: 'pl_no에 해당하는 상품명', ..}
+    for i in range(len(p_goodsnm)):
+        plno_to_plnm[p_plno[i]] = p_goodsnm[i]
+    return plno_to_plnm
+#---------------------------------------------------#
 
 def clean_sentence(sentence):
     # input: 'sentence'
