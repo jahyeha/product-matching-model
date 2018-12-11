@@ -6,7 +6,9 @@ from keras.preprocessing import sequence
 from keras.models import Sequential
 from keras.layers import Dense
 from keras.layers import LSTM
+import matplotlib.pyplot as plt
 import numpy as np
+
 
 
 class MyLSTM:
@@ -32,7 +34,25 @@ class MyLSTM:
                       loss='sparse_categorical_crossentropy',
                       metrics=['accuracy'])
 
-        history = model.fit(X_train, Y_train, epochs=10, batch_size=100, validation_data=(X_val, Y_val))
+        history = model.fit(X_train, Y_train, epochs=3, batch_size=100, validation_data=(X_val, Y_val))
+
+        # Plot accuracy
+        plt.plot(history.history['acc'])
+        plt.plot(history.history['val_acc'])
+        plt.title('Model Accuracy')
+        plt.ylabel('Accuracy')
+        plt.xlabel('Epoch')
+        plt.legend(['Train', 'Validation'], loc='upper left')
+        plt.show()
+
+        # Plot loss
+        plt.plot(history.history['loss'])
+        plt.plot(history.history['val_loss'])
+        plt.title('Model Loss')
+        plt.ylabel('Loss')
+        plt.xlabel('Epoch')
+        plt.legend(['Train', 'Validation'], loc='upper right')
+        plt.show()
         model.save('model/lstm.h5')
         scores = model.evaluate(X_test, Y_test, verbose=0)
         print("Accuracy: %.2f%%" % (scores[1] * 100))
@@ -54,7 +74,7 @@ class MyLSTM:
         toy_test = self.vec_label_lst[idx_num_val:]
         print("--------------------------------------")
         print("train: {} | val: {} | test: {}".format(len(toy_train), len(toy_val), len(toy_test)))
-        print("--------------------------------------")
+        #print("--------------------------------------")
 
         X_train, Y_train = list(), list()
         for lst in toy_train: #> toy_train
