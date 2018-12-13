@@ -21,7 +21,6 @@ def make_goodsnms_lst(): # total_goods_nms
 
 #---------------------------------------------------#
 # model_basic_dict | PL_basic_dict
-
 def model_basic_dict(): #<= create_basic_dict
     g_data, p_data = load_data()
     g_modelnm, g_modelno = g_data['g_modelnm'], g_data['g_modelno']
@@ -47,7 +46,17 @@ def model_basic_dict(): #<= create_basic_dict
             modelno_to_goodsnms[key].append((num, val))
     return (modelno_to_goodsnm, modelno_to_goodsnms)
 
-# 18.12.10 11pm UPDATE
+#for Siamese Net. | UPDATED 12.13. 9am #
+def model_idx_dict(max_size):
+    toy_dict = toyData.ToyData().create_toy_dict(max_size)
+    # └> {modelno: [(pl_no, pl_goodsnm),(pl_no2, pl_goodsnms),..], ..}
+    (modelno_to_goodsnm, modelno_to_goodsnms) = model_basic_dict()
+    model_idx_dict = dict()
+    for i in range(len(toy_dict)):
+        modelno = list(toy_dict.keys())[i] # 1 modelno
+        model_idx_dict[i] = (modelno, modelno_to_goodsnm[modelno])
+    return model_idx_dict
+
 def PL_basic_dict():
     g_data, p_data = load_data()
     p_goodsnm = list(p_data['pl_goodsnm'].values)
@@ -83,9 +92,7 @@ def tokenize_sentence(sentence): # claen&Tokenize
     # output: ['token', 'token', 'token', ..]
     sent = clean_sentence(sentence)
     return sent.split()
-
 #---------------------------------------------------#
-### For Toy Data ###
 # 1. Documents 단위
 def make_docsNlabels(max_size):
     # output
@@ -93,22 +100,23 @@ def make_docsNlabels(max_size):
     #   │                   ↓ Matching
     #   └ labels (array) = [modelno, modelno]
     #toy_dict = ToyData().create_toy_dict(max_size=max_size)
-    toy_dict = toyData.ToyData().create_toy_dict(max_size=max_size)
+    toy_dict = toyData.ToyData().create_toy_dict(max_size)
     cleaned_toyDict = dict()
-    for modelno, pl_nms in toy_dict.items():
+    for modelno, lst in toy_dict.items():
         cleaned_lst = list()
-        for modelnm in pl_nms:
-            cleaned = clean_sentence(modelnm)
+        for tup in lst:
+            # tuple => (pl_no, pl_goodsnm)
+            # e.g. (3958835420, '(정품) 히말라야 인텐시브 고수분크림 150ml  영양')
+            cleaned = clean_sentence(tup[1])
             cleaned_lst.append(cleaned)
         cleaned_toyDict[modelno] = cleaned_lst
-    # └> cleaned_toyDict => 불용어 제거된 toy_dict (형태는 동일!)
+        # └> cleaned_toyDict => 불용어 제거된 toy_dict (형태는 동일!)
 
-    docs, labels = list(), list() # labels=> array로 변환
+    docs, labels = list(), list()
     for modelno, pl_nms in cleaned_toyDict.items():
         for i in range(len(pl_nms)):
             docs.append(pl_nms[i])
             labels.append(modelno)
-            # 같은 정답인 것들이 쭉 들어가게 됨 => shuffle 꼭 해주기!
     labels = array(labels)
     #print("# length of docs: {} | labels: {}".format(len(docs), len(labels)))
     return (docs, labels)
@@ -145,22 +153,15 @@ def make_padded_lst(encoded_lst):
                                padding='post')
     return padded_lst
 
-#---------------------------------------------------#
 # 2. Sentence 단위
-def sent_to_encoded(sentence):
+def sent_to_encoded(sentence, max_size):
     # in: '(정품) 히말라야 인텐시브 고수분크림 150ml 영양'
     # out: [13, 6, 11, 49, 9, 47]
     t = Tokenizer()
     tokenized_lst = tokenize_sentence(sentence)
-    print(tokenized_lst)
+    (docs, labels) = make_docsNlabels(max_size)
+    word_idx_dict = create_word_idx_dict(docs)
     encoded_res = list()
     for token in tokenized_lst:
-        (docs, labels) = make_docsNlabels(max_size=50) ##### 수정 필요!
-        word_idx_dict = create_word_idx_dict(docs)
         encoded_res.append(word_idx_dict[token])
     return encoded_res
-
-
-if __name__ == '__main__':
-    test_sent = '(정품) 히말라야 인텐시브 고수분크림 150ml 영양'
-    print(sent_to_encoded(test_sent))

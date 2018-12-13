@@ -2,7 +2,6 @@ import warnings
 warnings.filterwarnings(action='ignore', category=UserWarning, module='gensim')
 from gensim.models import FastText
 import pandas as pd
-import re
 from utils import tokenize_sentence
 
 #--------------------------#

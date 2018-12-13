@@ -37,8 +37,3 @@ class ToyData():
             toy_dict[modelno] = self.modelno_to_goodsnms[modelno]
         # └> e.g. {modelno: [(pl_no, pl_goodsnm),(pl_no2, pl_goodsnms),..], ..}
         return toy_dict
-
-if __name__ == '__main__':
-    #-------Pickle Toyset-------#
-    ToyData().save_toy_dict(max_size=50)
-    #---------------------------#
