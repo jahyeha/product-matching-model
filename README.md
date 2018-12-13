@@ -1,5 +1,5 @@
 # capstone-project
-
+![][1]
 2018 [SNU-FIRA AI Agent Course](http://bdi.snu.ac.kr/academy/portal/index.php/ai_intro/), Final Capstone Project (18.11.06-12.14)
 
 This project is supported by **Seoul National University& Ministry of Employment and Labor**
@@ -27,3 +27,5 @@ Initial requirements are as follows.
 - Joulin, Armand, et al. "Fasttext. zip: Compressing text classification models." arXiv preprint arXiv:1612.03651 (2016).
 - Shah, Kashif, Selcuk Kopru, and Jean David Ruvini. "Neural Network based Extreme Classification and Similarity Models for Product Matching." Proceedings of the 2018 Conference of the North American Chapter of the Association for Computational Linguistics: Human Language Technologies, Volume 3 (Industry Papers). Vol. 3. 2018.
 - [How to predict Quora Question Pairs using Siamese Manhattan LSTM](https://medium.com/mlreview/implementing-malstm-on-kaggles-quora-question-pairs-competition-8b31b0b16a07)
+
+[1]: https://github.com/jahyeha/capstone-project/blob/master/intro.png
