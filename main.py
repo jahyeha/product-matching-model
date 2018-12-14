@@ -9,6 +9,8 @@ import utils
 # Setting
 max_size = 50
 max_seq_len = 30
+(modelno_to_goodsnm, modelno_to_goodsnms) = utils.model_basic_dict()
+print("✱ the # of classes(catalogs): ", len(modelno_to_goodsnm)) # Not-Toy set
 
 # Loading..
 # ├ ⑴Toy dict.(pre-stored @toyData.py)
@@ -17,10 +19,12 @@ max_seq_len = 30
 with open('dictionary/toyDict.pickle', 'rb') as handle:
     toy_dict = pickle.load(handle)
 fastText = FastText.load('model/FastText.bin')
+#fastText.wv.vocab
 lstm = load_model('model/lstm.h5')
 #----------------------------------------------------#
 
 myLSTM = MyLSTM(toy_dict=toy_dict, embedding_model=fastText)
+#myLSTM.run_lstm(max_seq_len)
 (X_train, Y_train, X_val, Y_val, X_test, Y_test, toy_train_dict) = myLSTM.split_train_test()
 # e.g. X_train[:3] => N차원 벡터 3개(N=300) e.g. [[300D vec], [300D vec], [300D vec]]
 #      Y_train[:3] => [15, 8, 48]
@@ -29,10 +33,11 @@ index_dict = myLSTM.create_index_dict()
 
 #-------------------run LSTM model-------------------#
 print("✱ Run LSTM model...")
-myLSTM.run_lstm(max_seq_len=max_seq_len) # run LSTM
+#myLSTM.run_lstm(max_seq_len=max_seq_len) # run LSTM
 #---------------------Prediction---------------------#
-X_new = X_train[:50]
-Y_new = Y_train[:50] # 정답
+X_test = sequence.pad_sequences(np.array(X_test), maxlen=max_seq_len)
+X_new = X_test[:50] # X_train => X_test 수정 (12.13. 2am)
+Y_new = Y_test[:50]
 Y_hat = list(lstm.predict_classes(X_new))
 print("\nY_hat: {},\nY_new: {}\n".format(Y_hat, Y_new))
 

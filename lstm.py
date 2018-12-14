@@ -10,7 +10,6 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 
-
 class MyLSTM:
 
     def __init__(self, toy_dict, embedding_model):
