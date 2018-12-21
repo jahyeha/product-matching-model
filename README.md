@@ -1,12 +1,26 @@
+
 # capstone-project
 
 2018 [SNU-FIRA AI Agent Course](http://bdi.snu.ac.kr/academy/portal/index.php/ai_intro/), Final Capstone Project (18.11.06-12.14)
 
-This project is supported by **Seoul National University& Ministry of Employment and Labor**
+This project is supported by **Seoul National University& Ministry of Employment and Labor**.
 
-`✱ Project title: Product matching model for the e-commerce platform using Deep Learning techniques`
+Our team won **1st Place** in the Final Project Presentation. :) 
+
+## Goal
+
+<img src="https://github.com/jahyeha/capstone-project/blob/master/img/outline.PNG" width="70%">
+
+▪ **딥러닝을 활용한 상품매칭 모델개발**
+
+`Product Matching Model for the Korean eCommerce platform using Deep Learning methods`
+
+░**CLOSED DATASETS**░ 프로젝트 협력기관과의 비밀 유지 협약으로 데이터를 공개할 수 없습니다. 
+
 
 ## Team Members
+<img src="https://github.com/jahyeha/capstone-project/blob/master/img/members.jpg" width="32%">
+
 - [Jahye Ha](https://github.com/jahyeha) 
 - [Yoonna Jang](https://github.com/YOONNAJANG) 
 - Taewon Kang
@@ -23,7 +37,14 @@ Initial requirements are as follows.
  pandas 0.23.4
 ```
 
+## Result 
+<img src="https://github.com/jahyeha/capstone-project/blob/master/img/result1.jpg" width="80%">
+<img src="https://github.com/jahyeha/capstone-project/blob/master/img/result2.png" width="80%">
+
+## 
+
 ### References
 - Joulin, Armand, et al. "Fasttext. zip: Compressing text classification models." arXiv preprint arXiv:1612.03651 (2016).
 - Shah, Kashif, Selcuk Kopru, and Jean David Ruvini. "Neural Network based Extreme Classification and Similarity Models for Product Matching." Proceedings of the 2018 Conference of the North American Chapter of the Association for Computational Linguistics: Human Language Technologies, Volume 3 (Industry Papers). Vol. 3. 2018.
 - [How to predict Quora Question Pairs using Siamese Manhattan LSTM](https://medium.com/mlreview/implementing-malstm-on-kaggles-quora-question-pairs-competition-8b31b0b16a07)
+
