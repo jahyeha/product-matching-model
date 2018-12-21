@@ -1,0 +1,24 @@
+﻿
+1. Run wordEmbedding.py to create our word embedding model (FastText) to the model directory.
+2. Run lstm.py to train and evaluate our simple LSTM model. In addition, lstm.h5 will be stored in the model directory.
+3. Run main.py to see how well our model predict(match) products!
+
+※ 프로젝트 협력기관과의 비밀 유지 협약(confidentiality agreement)으로 데이터를 공개할 수 없습니다. 
+
+───────────────────────────────────────────────
+
+Our dataset looks like...
+
+goods.csv
+   ┌ LCATE_NM: 대카테고리명
+   ├ ...
+   ├ g_modelno: 모델번호 (✔)
+   └ g_modelnm: 모델명 (✔)
+
+
+pricelist.csv
+   ┌ pl_no: 상품번호 (✔)
+   ├ ...
+   ├ pl_goodsnm: 상품명 (✔)
+   └ pl_modelno: 매칭된 모델번호 (✔)
+
