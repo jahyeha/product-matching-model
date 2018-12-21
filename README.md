@@ -5,7 +5,7 @@
 
 This project is supported by **Seoul National University& Ministry of Employment and Labor**.
 
-Our team won **1st Place** in the Final project presentation. :)
+☁ Our team won **1st place** in the final project presentation.
 
 ## Goal
 
@@ -34,15 +34,16 @@ Initial requirements are as follows.
 ```
 
 ## Result 
-<img src="https://github.com/jahyeha/capstone-project/blob/master/img/result1.jpg" width="80%">
-<img src="https://github.com/jahyeha/capstone-project/blob/master/img/result2.png" width="80%">
+<img src="https://github.com/jahyeha/capstone-project/blob/master/img/result1.jpg" width="82%">
+<img src="https://github.com/jahyeha/capstone-project/blob/master/img/result2.png" width="90%">
+
+## 
 
 ### Notice
 
-░░░░**CLOSED DATASETS**░░░░ 프로젝트 협력기관과의 비밀 유지 협약으로 데이터를 공개할 수 없습니다.  
+░░░░CLOSED DATASETS░░░░ 프로젝트 협력기관과의 비밀 유지 협약으로 데이터를 공개할 수 없습니다.
 
 ### References
 - Joulin, Armand, et al. "Fasttext. zip: Compressing text classification models." arXiv preprint arXiv:1612.03651 (2016).
 - Shah, Kashif, Selcuk Kopru, and Jean David Ruvini. "Neural Network based Extreme Classification and Similarity Models for Product Matching." Proceedings of the 2018 Conference of the North American Chapter of the Association for Computational Linguistics: Human Language Technologies, Volume 3 (Industry Papers). Vol. 3. 2018.
 - [How to predict Quora Question Pairs using Siamese Manhattan LSTM](https://medium.com/mlreview/implementing-malstm-on-kaggles-quora-question-pairs-competition-8b31b0b16a07)
-
