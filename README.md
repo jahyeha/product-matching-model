@@ -5,15 +5,13 @@
 
 This project is supported by **Seoul National University& Ministry of Employment and Labor**.
 
-Our team won **1st Place** in the Final Project Presentation. :) 
+Our team won **1st Place** in the Final project presentation. :)
 
 ## Goal
 
 <img src="https://github.com/jahyeha/capstone-project/blob/master/img/outline.PNG" width="70%">
 
-▪ **딥러닝을 활용한 상품매칭 모델개발**
-
-　`Product Matching Model for the Korean eCommerce platform using Deep Learning methods`
+▪ **딥러닝을 활용한 상품매칭 모델개발** Product Matching Model for the Korean eCommerce platform using DL methods
 
 
 ## Team Members
@@ -41,7 +39,7 @@ Initial requirements are as follows.
 
 ### Notice
 
-░░░░░░ **CLOSED DATASETS** 프로젝트 협력기관과의 비밀 유지 협약으로 데이터를 공개할 수 없습니다. ░░░░░░ 
+░░░░**CLOSED DATASETS**░░░░ 프로젝트 협력기관과의 비밀 유지 협약으로 데이터를 공개할 수 없습니다.  
 
 ### References
 - Joulin, Armand, et al. "Fasttext. zip: Compressing text classification models." arXiv preprint arXiv:1612.03651 (2016).
