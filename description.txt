@@ -1,5 +1,6 @@
-﻿
-───────────────────────────────────────────────✱
+
+
+─────────────────────USAGE─────────────────────✱
 
 1. Run wordEmbedding.py to create our word embedding model (FastText) to the 'model' directory.
 2. Run toyData.py then toyDict.pickle will be stored in the 'dictionary' directory.
@@ -9,7 +10,7 @@
 ───────────────────────────────────────────────
 
 ✖CLOSED DATASETS✖
-프로젝트 협력기관과의 비밀 유지 협약으로 데이터를 공개할 수 없습니다. :(
+프로젝트 협력기관과의 비밀 유지 협약으로 데이터를 공개할 수 없습니다.
 
 
 Our dataset looks like...
