@@ -33,7 +33,7 @@ class MyLSTM:
         model.compile(optimizer='adam',
                       loss='sparse_categorical_crossentropy',
                       metrics=['accuracy'])
-        history = model.fit(X_train, Y_train, epochs=3, batch_size=100, validation_data=(X_val, Y_val))
+        history = model.fit(X_train, Y_train, epochs=20, batch_size=100, validation_data=(X_val, Y_val))
 
         plt.plot(history.history['acc'])
         plt.plot(history.history['val_acc'])

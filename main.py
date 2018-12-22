@@ -34,7 +34,7 @@ for i in range(len(Y_hat)):
     pl_no = toy_train_dict[i]
     pl_nm = utils.PL_basic_dict()[pl_no]
     predicted = index_dict[Y_hat[i]][1]
-    prediction_res = (Y_hat[i] == Y_new[i]) # 예측값 == 정답값
+    prediction_res = (Y_hat[i] == Y_new[i])
     if prediction_res == True:
         print("\t✔ | {} ===> {}".format(pl_nm, predicted))
     else:
