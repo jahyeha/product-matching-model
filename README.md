@@ -15,7 +15,7 @@ This project is supported by **Seoul National University& Ministry of Employment
 
 
 ## Team Members
-<img src="https://github.com/jahyeha/capstone-project/blob/master/img/members.jpg" width="32%">
+<img src="https://github.com/jahyeha/capstone-project/blob/master/img/members.png" width="35%">
 
 - [Jahye Ha](https://github.com/jahyeha) 
 - [Yoonna Jang](https://github.com/YOONNAJANG) 
@@ -34,7 +34,6 @@ Initial requirements are as follows.
 ```
 
 ## Result 
-<img src="https://github.com/jahyeha/capstone-project/blob/master/img/result1.jpg" width="82%">
 <img src="https://github.com/jahyeha/capstone-project/blob/master/img/result2.png" width="90%">
 
 ## 
