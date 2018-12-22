@@ -5,17 +5,17 @@
 
 This project is supported by **Seoul National University& Ministry of Employment and Labor**.
 
-☁ Our team won **1st place** in the final project presentation.
+Our team won **1st place** in the final project presentation.'◡'✿
 
 ## Goal
 
-<img src="https://github.com/jahyeha/capstone-project/blob/master/img/outline.PNG" width="70%">
+<img src="https://github.com/jahyeha/capstone-project/blob/master/img/outline.PNG" width="75%">
 
 ▪ **딥러닝을 활용한 상품매칭 모델개발** Product Matching Model for the Korean eCommerce platform using DL methods
 
 
 ## Team Members
-<img src="https://github.com/jahyeha/capstone-project/blob/master/img/members.png" width="35%">
+<img src="https://github.com/jahyeha/capstone-project/blob/master/img/members.png" width="31%">
 
 - [Jahye Ha](https://github.com/jahyeha) 
 - [Yoonna Jang](https://github.com/YOONNAJANG) 
@@ -34,7 +34,7 @@ Initial requirements are as follows.
 ```
 
 ## Result 
-<img src="https://github.com/jahyeha/capstone-project/blob/master/img/result2.png" width="90%">
+<img src="https://github.com/jahyeha/capstone-project/blob/master/img/result2.png" width="93%">
 
 ## 
 
