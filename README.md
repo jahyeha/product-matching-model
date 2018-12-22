@@ -1,5 +1,5 @@
 
-# capstone-project
+# product-matching-model
 
 2018 [SNU-FIRA AI Agent Course](http://bdi.snu.ac.kr/academy/portal/index.php/ai_intro/), Final Capstone Project (18.11.06-12.14)
 
@@ -9,13 +9,13 @@ Our team won **1st place** in the final project presentation.'◡'✿
 
 ## Goal
 
-<img src="https://github.com/jahyeha/capstone-project/blob/master/img/outline.PNG" width="80%">
+<img src="https://github.com/jahyeha/capstone-project/blob/master/img/outline.PNG" width="85%">
 
 ▪ **딥러닝을 활용한 상품매칭 모델개발** Product Matching Model for the Korean eCommerce platform using DL methods
 
 
 ## Team Members
-<img src="https://github.com/jahyeha/capstone-project/blob/master/img/members.png" width="31%">
+<img src="https://github.com/jahyeha/capstone-project/blob/master/img/members.png" width="35%">
 
 - [Jahye Ha](https://github.com/jahyeha) 
 - [Yoonna Jang](https://github.com/YOONNAJANG) 
@@ -34,8 +34,8 @@ Initial requirements are as follows.
 ```
 
 ## Result 
-<img src="https://github.com/jahyeha/capstone-project/blob/master/img/result1.png" width="83%">
-<img src="https://github.com/jahyeha/capstone-project/blob/master/img/result2.png" width="83%">
+<img src="https://github.com/jahyeha/capstone-project/blob/master/img/result1.png" width="85%">
+<img src="https://github.com/jahyeha/capstone-project/blob/master/img/result2.png" width="85%">
 
 ## 
 
