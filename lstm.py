@@ -59,12 +59,13 @@ class MyLSTM:
         shuffle(self.vec_label_lst)
         idx_num_train, idx_num_val = int(list_len * 0.6), int(list_len * 0.8)
         toy_train = self.vec_label_lst[:idx_num_train] #●●●●●●○○○○
-        toy_train_dict = dict()
-        for i in range(len(toy_train)):
-            toy_train_dict[i] = toy_train[i][0][1]
-        # └> {0: 1st pl_no, 1: 2nd pl_no, ...} => for PREDICTION @main.py
         toy_val = self.vec_label_lst[idx_num_train:idx_num_val] #●●●●●●[●●]○○
         toy_test = self.vec_label_lst[idx_num_val:] #●●●●●●●●[●●]
+
+        toy_test_dict = dict()
+        # └> {0: 1st pl_no, 1: 2nd pl_no, ...} => for PREDICTION @main.py #
+        for i in range(len(toy_test)):
+            toy_test_dict[i] = toy_test[i][0][1]
         print("--------------------------------------")
         print("train: {} | val: {} | test: {}".format(len(toy_train), len(toy_val), len(toy_test)))
         print("--------------------------------------")
@@ -83,7 +84,7 @@ class MyLSTM:
         for lst in toy_test:
             X_test.append(lst[0][0])
             Y_test.append(lst[1])
-        return (X_train, Y_train, X_val, Y_val, X_test, Y_test, toy_train_dict)
+        return (X_train, Y_train, X_val, Y_val, X_test, Y_test, toy_test_dict)
 
     def create_label_lst(self):
         # out: (pl_label_lst, vec_label_lst)
