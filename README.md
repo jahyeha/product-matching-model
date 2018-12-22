@@ -19,7 +19,6 @@ Our team won **1st place** in the final project presentation.'◡'✿
 
 - [Jahye Ha](https://github.com/jahyeha) 
 - [Yoonna Jang](https://github.com/YOONNAJANG) 
-- Taewon Kang
 - [Yongju Ahn](https://bhi-kimlab.github.io/) (T.A.)
 
 ## Requirements
