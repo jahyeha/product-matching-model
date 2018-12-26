@@ -55,9 +55,9 @@ def PL_basic_dict():
 
 #---------------------------------------------------#
 def clean_sentence(sentence):
-    # input: 'sentence'
-    #   │- lower, replace 특수문자, etc.
-    # output: 'cleaned sentence'
+    # in: 'sentence'
+    # │- lower, replace 특수문자, etc.
+    # out: 'cleaned sentence'
     sent = re.sub('[^0-9a-z가-힣]+', ' ', sentence.lower())
     p1 = re.compile(r'(?P<num>[0-9]+)\s+(?P<eng>[a-zA-Z]+)')
     sent = p1.sub('\g<num>\g<eng>', sent)
@@ -72,10 +72,10 @@ def clean_sentence(sentence):
     return sent
 
 def tokenize_sentence(sentence): # claen&Tokenize
-    # input: 'sentence'
-    #   │- lower, replace 특수문자, etc.
-    #   │- tokenize
-    # output: ['token', 'token', 'token', ..]
+    # in: 'sentence'
+    # │- lower, replace 특수문자, etc.
+    # │- tokenize
+    # out: ['token', 'token', 'token', ..]
     sent = clean_sentence(sentence)
     return sent.split()
 
