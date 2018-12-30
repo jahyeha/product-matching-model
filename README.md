@@ -11,7 +11,7 @@ Our team won **1st place** in the final project presentation.'◡'✿
 
 <img src="https://github.com/jahyeha/capstone-project/blob/master/img/outline.PNG" width="85%">
 
-▪ **딥러닝을 활용한 상품매칭 모델개발** Product Matching Model for an eCommerce platform(KOR) using Deep Leaning methods.
+▪ **딥러닝을 활용한 상품매칭 모델개발** Product Matching Model for an E-Commerce Platform(KOR) using Deep Learning Methods.
 
 
 ## Team Members
