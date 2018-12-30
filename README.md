@@ -15,7 +15,7 @@ Our team won **1st place** in the final project presentation.'◡'✿
 
 
 ## Team Members
-<img src="https://github.com/jahyeha/capstone-project/blob/master/img/members.png" width="35%">
+<img src="https://github.com/jahyeha/capstone-project/blob/master/img/members.png" width="30%">
 
 - [Jahye Ha](https://github.com/jahyeha) 
 - [Yoonna Jang](https://github.com/YOONNAJANG) 
