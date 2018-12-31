@@ -190,7 +190,7 @@ class SiameseNet:
 
     def save_embeddings_mat(self):
         np.save('npy/embeddings_mat', np.array(self.embeddings_mat))
-        print("*****embeddings_mat.npy 저장 완료*****")
+        print("*-------embeddings_mat.npy 저장 완료-------*")
 
     def make_embeddings_mat(self):
         word_embed_vec_size = 300

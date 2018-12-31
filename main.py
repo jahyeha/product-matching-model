@@ -10,11 +10,13 @@ import utils
 # ├ ⑴Toy dict.(pre-stored @toyData.py)
 # ├ ⑵Word Embedding Model (pre-trained @wordEmbedding.py)
 # └ ⑶LSTM model (pre-stored @lstm.py)
+
 max_seq_len = 30
 with open('dictionary/toyDict.pickle', 'rb') as handle:
     toy_dict = pickle.load(handle)
 fastText = FastText.load('model/FastText.bin')
 preLSTM = load_model('model/lstm.h5')
+#---------------------------------------------------------#
 
 LSTM = MyLSTM(toy_dict=toy_dict, embedding_model=fastText)
 index_dict = LSTM.create_index_dict()
@@ -23,8 +25,7 @@ X_test = sequence.pad_sequences(np.array(X_test), maxlen=max_seq_len)
 #print(len(X_test[0][0])) # 300 (300D vec)
 #print(len(X_test[0])) # 30 (padding size)
 
-
-#＊---UPDATED on Dec. 22 2018 at 16:00---＊#
+#＊-----------UPDATED on Dec. 22 2018 at 16:00-----------＊#
 
 # Prediction Example #
 X_new = X_test[:100]

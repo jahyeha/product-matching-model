@@ -58,9 +58,12 @@ class MyLSTM:
         list_len = len(self.vec_label_lst)
         shuffle(self.vec_label_lst)
         idx_num_train, idx_num_val = int(list_len * 0.6), int(list_len * 0.8)
-        toy_train = self.vec_label_lst[:idx_num_train] #●●●●●●○○○○
-        toy_val = self.vec_label_lst[idx_num_train:idx_num_val] #●●●●●●[●●]○○
-        toy_test = self.vec_label_lst[idx_num_val:] #●●●●●●●●[●●]
+        toy_train = self.vec_label_lst[:idx_num_train]
+        # ●●●●●●○○○○
+        toy_val = self.vec_label_lst[idx_num_train:idx_num_val]
+        # ●●●●●●[●●]○○
+        toy_test = self.vec_label_lst[idx_num_val:]
+        # ●●●●●●●●[●●]
 
         toy_test_dict = dict()
         # └> {0: 1st pl_no, 1: 2nd pl_no, ...} => for PREDICTION @main.py #
@@ -122,6 +125,3 @@ if __name__ == '__main__':
     print("✱ Run LSTM model...")
     lstm = MyLSTM(toy_dict=toy_dict, embedding_model=fastText)
     lstm.run_lstm(max_seq_len=max_seq_len) # run& save my LSTM model
-
-
-# reference| https://machinelearningmastery.com/sequence-classification-lstm-recurrent-neural-networks-python-keras/
