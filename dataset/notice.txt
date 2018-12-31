@@ -1,21 +1,36 @@
-﻿
+
 ✖CLOSED DATASETS✖
 
 프로젝트 협력기관과의 비밀 유지 협약(confidentiality agreement)으로 데이터를 공개할 수 없습니다.
 ──────────────────────────────────────────────────────────────────────────────────────────
 
-Our dataset looks like...
+Our (original) dataset looks like...
 
-goods.csv
+goods.csv (# 96,917)
    ┌ LCATE_NM: 대카테고리명
    ├ ...
-   ├ g_modelno: 모델번호 (✔)
-   └ g_modelnm: 모델명 (✔)
+   ├ g_modelno: 모델번호(✔) 
+   └ g_modelnm: 모델명(✔) 
 
 
-pricelist.csv
-   ┌ pl_no: 상품번호 (✔)
+pricelist.csv (# 354,898)
+   ┌ pl_no: 상품번호(✔)
    ├ ...
-   ├ pl_goodsnm: 상품명 (✔)
-   └ pl_modelno: 매칭된 모델번호 (✔)
+   ├ pl_goodsnm: 상품명(✔)
+   └ pl_modelno: 해당 상품과 매칭되는 모델번호(✔)
 
+------------------------------------------------------------------------------------------
+
+if pl_modelno == g_modelno:
+   pl_goodsnm(of pl_modelno) ─── ''MATCHING'' ───> g_modelno/ g_modelnm
+
+
+*---EXAMPLE---*
+   goods.csv 
+      ┌ g_modelno: 12345
+      └ g_modelnm: Samsung Galaxy S8 Unlocked 64GB
+
+   pricelist.csv 
+      ┌ pl_no: 987654321
+      ├ pl_goodsnm: Samsung Galaxy S8 Plus (S8+) (SM-G955FD) 4GB RAM / 64GB ROM 6.2-Inch 12MP 4G LTE Dual SIM FACTORY UNLOCKED
+      └ pl_modelno: 12345
