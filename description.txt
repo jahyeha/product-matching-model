@@ -28,3 +28,18 @@ pricelist.csv (# 354,898)
    ├ pl_goodsnm: 상품명 (✔)
    └ pl_modelno: 매칭된 모델번호 (✔)
 
+------------------------------------------------------------------------------------------
+
+if pl_modelno == g_modelno:
+   pl_goodsnm(of pl_modelno) ─── ''MATCHING'' ───> g_modelno/ g_modelnm
+
+
+*---EXAMPLE---*
+   goods.csv 
+      ┌ g_modelno: 12345
+      └ g_modelnm: Samsung Galaxy S8 Unlocked 64GB
+
+   pricelist.csv 
+      ┌ pl_no: 987654321
+      ├ pl_goodsnm: Samsung Galaxy S8 Plus (S8+) (SM-G955FD) 4GB RAM / 64GB ROM 6.2-Inch 12MP 4G LTE Dual SIM FACTORY UNLOCKED
+      └ pl_modelno: 12345
