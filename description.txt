@@ -15,14 +15,14 @@
 
 Our dataset looks like...
 
-goods.csv
+goods.csv (# 96,917)
    ┌ LCATE_NM: 대카테고리명
    ├ ...
    ├ g_modelno: 모델번호 (✔)
    └ g_modelnm: 모델명 (✔)
 
 
-pricelist.csv
+pricelist.csv (# 354,898)
    ┌ pl_no: 상품번호 (✔)
    ├ ...
    ├ pl_goodsnm: 상품명 (✔)
