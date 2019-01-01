@@ -5,7 +5,7 @@
 
 This project is supported by **Seoul National University& Ministry of Employment and Labor**.
 
-🏅Our team won **1st place** in the final project presentation.'◡'
+🏅Our team won **1st place** in the final project presentation.
 
 ## Goal
 
