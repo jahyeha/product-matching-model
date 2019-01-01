@@ -37,6 +37,7 @@ Initial requirements are as follows.
 <img src="https://github.com/jahyeha/capstone-project/blob/master/img/res.png" width="100%">
 
 ```
+*---main.py---*
 ✔ | 히말라야 고수분크림 (인텐시브) 150ml ===> 인텐시브 모이스처라이징 크림@150ml
 ✔ | [HANYUL]어린쑥 수분 진정크림 50ml ===> 어린쑥 수분 진정크림@50ml
 ✔ | 마몽드 모이스처 세라마이드 인텐스 크림 ===> 모이스처 세라마이드 인텐스 크림@50ml
