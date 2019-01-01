@@ -34,7 +34,7 @@ Initial requirements are as follows.
 ```
 
 ## Result 
-<img src="https://github.com/jahyeha/capstone-project/blob/master/img/result.png" width="100%">
+<img src="https://github.com/jahyeha/capstone-project/blob/master/img/res.png" width="100%">
 
 ```
 ✔ | 히말라야 고수분크림 (인텐시브) 150ml ===> 인텐시브 모이스처라이징 크림@150ml
