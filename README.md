@@ -9,9 +9,8 @@ Our team won **1st place** in the final project presentation.'◡'✿
 
 ## Goal
 
-<img src="https://github.com/jahyeha/capstone-project/blob/master/img/intro.jpg" width="95%">
+<img src="https://github.com/jahyeha/capstone-project/blob/master/img/intro.jpg" width="100%">
 
-▪ **딥러닝을 활용한 상품매칭 모델개발** Product Matching Model for an E-Commerce Platform(KOR) using Deep Learning Methods.
 
 
 ## Team Members
