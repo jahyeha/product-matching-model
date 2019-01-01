@@ -33,8 +33,7 @@ Initial requirements are as follows.
 ```
 
 ## Result 
-<img src="https://github.com/jahyeha/capstone-project/blob/master/img/result1.png" width="85%">
-<img src="https://github.com/jahyeha/capstone-project/blob/master/img/result2.png" width="85%">
+<img src="https://github.com/jahyeha/capstone-project/blob/master/img/result.png" width="85%">
 
 ## 
 
