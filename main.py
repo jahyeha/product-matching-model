@@ -28,8 +28,8 @@ X_test = sequence.pad_sequences(np.array(X_test), maxlen=max_seq_len)
 #＊-----------UPDATED on Dec. 22 2018 at 16:00-----------＊#
 
 # Prediction Example #
-X_new = X_test[:100]
-Y_new = Y_test[:100]
+X_new = X_test[:50]
+Y_new = Y_test[:50]
 Y_hat = list(preLSTM.predict_classes(X_new))
 print("\nY_hat: {},\nY_new: {}\n".format(Y_hat, Y_new))
 
