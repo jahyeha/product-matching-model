@@ -15,12 +15,8 @@ This project is supported by **Seoul National University& Ministry of Employment
 #### ▪ 딥러닝을 활용한 상품매칭 모델 개발
 　(Building Product Matching Models for an Ecommerce Platform(KOR) using Deep Learning Methods.)
 
-## Team Members
-<img src="https://github.com/jahyeha/capstone-project/blob/master/img/members.png" width="28%">
-
-- [Jahye Ha](https://github.com/jahyeha) 
-- [Yoonna Jang](https://github.com/YOONNAJANG) 
-- [Yongju Ahn](https://bhi-kimlab.github.io/) (T.A.)
+## Dataset
+░░░░CLOSED DATASETS░░░░ 프로젝트 협력기관과의 비밀 유지 협약으로 데이터를 공개할 수 없습니다.
 
 ## Requirements
 Initial requirements are as follows.
@@ -51,11 +47,11 @@ Initial requirements are as follows.
 ✖ | 히말라야 정품-50ml 히말라야인텐시브수분크림/히말라야인텐시 ===> 너리싱 스킨 크림@50ml | ✪정답: 인텐시브 모이스처라이징 크림 ...
 ```
 
-## 
+## Team Members
+<img src="https://github.com/jahyeha/capstone-project/blob/master/img/members.png" width="28%">
 
-### Notice
-
-░░░░CLOSED DATASETS░░░░ 프로젝트 협력기관과의 비밀 유지 협약으로 데이터를 공개할 수 없습니다.
+- [Jahye Ha](https://github.com/jahyeha) & [Yoonna Jang](https://github.com/YOONNAJANG) 
+- Yongju Ahn (T.A.)
 
 ### References
 - Joulin, Armand, et al. "Fasttext. zip: Compressing text classification models." arXiv preprint arXiv:1612.03651 (2016).
