@@ -53,7 +53,6 @@ Initial requirements are as follows.
 <img src="https://github.com/jahyeha/capstone-project/blob/master/img/members.png" width="28%">
 
 - [Jahye Ha](https://github.com/jahyeha) & [Yoonna Jang](https://github.com/YOONNAJANG) 
-- Yongju Ahn (T.A.)
 
 ### References
 - Joulin, Armand, et al. "Fasttext. zip: Compressing text classification models." arXiv preprint arXiv:1612.03651 (2016).
